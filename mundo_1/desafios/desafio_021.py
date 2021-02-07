@@ -4,4 +4,4 @@
 
 from playsound import playsound
 
-playsound('C:\\Users\lucas\Documents\Curso_Python3\mundo_1\desafios\horse.mp3')
+playsound('horse.mp3')
