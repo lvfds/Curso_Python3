@@ -18,4 +18,4 @@ Caso tenha interesse, basta clicar na playlist abaixo:
 
 | Módulo   |      Inicio      |  Fim|
 |----------|:-------------:|------:|
-| 1 |  01/02/2021 | ---|
+| 1 |  01/02/2021 | 10/02/2021|
