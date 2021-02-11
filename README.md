@@ -16,6 +16,7 @@ Caso tenha interesse, basta clicar na playlist abaixo:
 # Meu progresso:
 
 
-| Módulo   |      Inicio      |  Fim|
+|      Módulo      |      Inicio      |      Fim     |
 |----------|:-------------:|------:|
-| 1 |  01/02/2021 | ---|
+| 1 |  01/02/2021 | 10/02/2021|
+| 2 |  11/02/2021 | --- |
