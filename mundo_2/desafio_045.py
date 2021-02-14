@@ -52,11 +52,11 @@ if opcao_escolhida_pelo_usuario.isnumeric() == True:
                 f'Você escolheu: :hand: e o computador: :fist: \n{TEXTO_VERMELHO_COM_NEGRITO}VOCÊ PERDEU!{LIMPAR_A_COR_DO_TEXTO}',
                 use_aliases=True))
         else:
-            if mao_do_usuario == 'Pedra' and mao_do_computador == 'Pedra':
+            if mao_do_usuario == 'Pedra' and mao_do_computador == 'Pedra' or mao_do_computador == 'Pedra' and mao_do_usuario == 'Pedra':
                 print(emojize('Você escolheu: :fist: e o computador: :fist: \nEMPATE!', use_aliases=True))
-            elif mao_do_usuario == 'Papel' and mao_do_computador == 'Papel':
+            elif mao_do_usuario == 'Papel' and mao_do_computador == 'Papel' or mao_do_computador == 'Papel' and mao_do_usuario == 'Papel':
                 print(emojize('Você escolheu: :hand: e o computador: :hand: \nEMPATE!', use_aliases=True))
-            else:
+            elif mao_do_usuario  == 'Tesoura' and mao_do_computador == 'Tesoura' or mao_do_computador == 'Tesoura' and mao_do_usuario == 'Tesoura':
                 print(emojize('Você escolheu: :v: e o computador: :v: \nEMPATE!', use_aliases=True))
     else:
         print(f'{TEXTO_VERMELHO_COM_NEGRITO}ERRO: O NÚMERO {numero_digitado_pelo_usuario} NÃO É VALIDO COMO OPÇÃO!{LIMPAR_A_COR_DO_TEXTO}')
