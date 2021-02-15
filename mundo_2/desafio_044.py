@@ -31,7 +31,7 @@ elif menu_com_as_opcoes == 3:
         print(f'Você resolveu parcelar em {numero_de_parcelas}x, o preço das parcelas ficaram em R${preco_do_produto / numero_de_parcelas:.2f} e o preço cheio ficou em : R${preco_do_produto:.2f}')
     elif numero_de_parcelas >= 3:
         juros = (preco_do_produto * 20 ) / 100
-        print(f'Você resolveu parcelar em {numero_de_parcelas}x, o preço das parcelas ficaram em R${preco_do_produto / numero_de_parcelas:.2f} e o preço cheio ficou em  R${preco_do_produto + juros:.2f}')
+        print(f'Você resolveu parcelar em {numero_de_parcelas}x, o preço das parcelas ficaram em R${(preco_do_produto + juros ) / numero_de_parcelas:.2f} e o preço cheio ficou em  R${preco_do_produto + juros:.2f}')
     else:
         print(f'{texto_vermelho_com_fonte_negrito}NÃO É POSSÍVEL FAZER ESSE NÚMERO DE PARCELAS!{limpar_cor}')
 
