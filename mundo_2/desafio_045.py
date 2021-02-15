@@ -24,7 +24,7 @@ Escolha uma dessas opções:
 [ 2 ] para jogar {emojis_das_maos[1]}.
 [ 3 ] para jogar {emojis_das_maos[2]}.
 """)
-opcao_escolhida_pelo_usuario = input('Digite a opção escolhida: ')
+opcao_escolhida_pelo_usuario = input('Digite a opção escolhida: ').strip()
 if opcao_escolhida_pelo_usuario.isnumeric() != True:
     print(f'{TEXTO_VERMELHO_EM_NEGRITO}ERRO: O VALOR {opcao_escolhida_pelo_usuario} É INVÁLIDO PARA O JOGO!{LIMPAR_COR_DA_FONTE}')
 elif opcao_escolhida_pelo_usuario.isnumeric() == True and int(opcao_escolhida_pelo_usuario) > 0 and int(opcao_escolhida_pelo_usuario) <=3:
