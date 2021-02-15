@@ -3,63 +3,60 @@
 from random import choice
 from emoji import emojize
 
-TEXTO_VERMELHO_COM_NEGRITO = '\033[1;31m'
-TEXTO_VERDE_COM_NEGRITO = '\033[1;32m'
-LIMPAR_A_COR_DO_TEXTO = '\033[0m'
+# Cores do texto:
+TEXTO_VERMELHO_EM_NEGRITO = '\033[1;31m'
+TEXTO_VERDE_EM_NEGRITO = '\033[1;32m'
+LIMPAR_COR_DA_FONTE = '\033[0m'
 
-opcoes_para_escolher = ['Pedra','Papel','Tesoura']
-mao_do_usuario = ''
-mao_do_computador = choice(opcoes_para_escolher)
-numero_digitado_pelo_usuario = 0
-opcao_escolhida_pelo_usuario = input("""
+# Listas com os dados mais importantes:
+opcoes_do_jogo = ['PEDRA','PAPEL','TESOURA']
+emojis_das_maos = [emojize(':fist:',use_aliases=True),emojize(':hand:',use_aliases=True),emojize(':v:',use_aliases=True)]
 
-ESCOLHA UMA DESSAS OPÇÕES:
-1 | Para pedra.
-2 | Para papel.
-3 | Para tesoura.
+# Mãos dos jogadores
+mao_do_computador = choice(opcoes_do_jogo)
+mao_do_jogador = ''
 
-Digite aqui sua opção: """)
-if opcao_escolhida_pelo_usuario.isnumeric() == True:
-    numero_digitado_pelo_usuario = int(opcao_escolhida_pelo_usuario)
-    if numero_digitado_pelo_usuario == 1:
-        mao_do_usuario = opcoes_para_escolher[0]
-    elif numero_digitado_pelo_usuario == 2:
-        mao_do_usuario = opcoes_para_escolher[1]
-    elif numero_digitado_pelo_usuario == 3:
-        mao_do_usuario = opcoes_para_escolher[2]
-        if mao_do_usuario == 'Pedra' and mao_do_computador == 'Tesoura':
-            print(emojize(
-                f'Você escolheu : :fist: e o computador: :v: \n{TEXTO_VERDE_COM_NEGRITO}VOCÊ GANHOU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        elif mao_do_usuario == 'Tesoura' and mao_do_computador == 'Papel':
-            print(emojize(
-                f'Você escolheu : :v: e o computador: :hand: \n{TEXTO_VERDE_COM_NEGRITO}VOCÊ GANHOU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        elif mao_do_usuario == 'Papel' and mao_do_computador == 'Pedra':
-            print(emojize(
-                f'Você escolheu: :hand: e o computador: :fist: \n{TEXTO_VERDE_COM_NEGRITO}VOCÊ GANHOU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        elif mao_do_computador == 'Pedra' and mao_do_usuario == 'Tesoura':
-            print(emojize(
-                f'Você escolheu: :v: e o computador: :fist: \n{TEXTO_VERMELHO_COM_NEGRITO}VOCÊ PERDEU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        elif mao_do_computador == 'Tesoura' and mao_do_usuario == 'Papel':
-            print(emojize(
-                f'Você escolheu: :hand: e o computador escolheu: :v: \n{TEXTO_VERMELHO_COM_NEGRITO}VOCÊ PERDEU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        elif mao_do_computador == 'Papel' and mao_do_usuario == 'Pedra':
-            print(emojize(
-                f'Você escolheu: :hand: e o computador: :fist: \n{TEXTO_VERMELHO_COM_NEGRITO}VOCÊ PERDEU!{LIMPAR_A_COR_DO_TEXTO}',
-                use_aliases=True))
-        else:
-            if mao_do_usuario == 'Pedra' and mao_do_computador == 'Pedra' or mao_do_computador == 'Pedra' and mao_do_usuario == 'Pedra':
-                print(emojize('Você escolheu: :fist: e o computador: :fist: \nEMPATE!', use_aliases=True))
-            elif mao_do_usuario == 'Papel' and mao_do_computador == 'Papel' or mao_do_computador == 'Papel' and mao_do_usuario == 'Papel':
-                print(emojize('Você escolheu: :hand: e o computador: :hand: \nEMPATE!', use_aliases=True))
-            elif mao_do_usuario  == 'Tesoura' and mao_do_computador == 'Tesoura' or mao_do_computador == 'Tesoura' and mao_do_usuario == 'Tesoura':
-                print(emojize('Você escolheu: :v: e o computador: :v: \nEMPATE!', use_aliases=True))
-    else:
-        print(f'{TEXTO_VERMELHO_COM_NEGRITO}ERRO: O NÚMERO {numero_digitado_pelo_usuario} NÃO É VALIDO COMO OPÇÃO!{LIMPAR_A_COR_DO_TEXTO}')
-
+print(f"""
+Escolha uma dessas opções:
+[ 1 ] para jogar {emojis_das_maos[0]}.
+[ 2 ] para jogar {emojis_das_maos[1]}.
+[ 3 ] para jogar {emojis_das_maos[2]}.
+""")
+opcao_escolhida_pelo_usuario = input('Digite a opção escolhida: ')
+if opcao_escolhida_pelo_usuario.isnumeric() != True:
+    print(
+        f'{TEXTO_VERMELHO_EM_NEGRITO}ERRO: O VALOR {opcao_escolhida_pelo_usuario} É INVÁLIDO PARA O JOGO!{LIMPAR_COR_DA_FONTE}')
 else:
-    print(f'{TEXTO_VERMELHO_COM_NEGRITO}ERRO: O VALOR {opcao_escolhida_pelo_usuario} NÃO É VÁLIDO PARA ESSE JOGUINHO!{LIMPAR_A_COR_DO_TEXTO}')
+    if int(opcao_escolhida_pelo_usuario) == 1:
+        mao_do_jogador = opcoes_do_jogo[0]
+    elif int(opcao_escolhida_pelo_usuario) == 2:
+        mao_do_jogador = opcoes_do_jogo[1]
+    elif int(opcao_escolhida_pelo_usuario) == 3:
+        mao_do_jogador = opcoes_do_jogo[2]
+        if mao_do_jogador == 'PEDRA' and mao_do_computador == 'TESOURA':
+            print(
+                f'{emojis_das_maos[0]} x {emojis_das_maos[2]}. {TEXTO_VERDE_EM_NEGRITO}VOCÊ GANHOU!{LIMPAR_COR_DA_FONTE}')
+        elif mao_do_jogador == 'PAPEL' and mao_do_computador == 'PEDRA':
+            print(
+                f'{emojis_das_maos[1]} x {emojis_das_maos[0]}. {TEXTO_VERDE_EM_NEGRITO}VOCÊ GANHOU!{LIMPAR_COR_DA_FONTE}')
+        elif mao_do_jogador == 'TESOURA' and mao_do_computador == 'PAPEL':
+            print(
+                f'{emojis_das_maos[2]} x {emojis_das_maos[1]}. {TEXTO_VERDE_EM_NEGRITO}VOCÊ GANHOU!{LIMPAR_COR_DA_FONTE}')
+        # Vitória da máquina
+        elif mao_do_computador == 'PEDRA' and mao_do_jogador == 'TESOURA':
+            print(
+                f'{emojis_das_maos[0]} x {emojis_das_maos[2]}. {TEXTO_VERMELHO_EM_NEGRITO}VOCÊ PERDEU!{LIMPAR_COR_DA_FONTE}')
+        elif mao_do_computador == 'PAPEL' and mao_do_jogador == 'PEDRA':
+            print(
+                f'{emojis_das_maos[1]} x {emojis_das_maos[0]}. {TEXTO_VERMELHO_EM_NEGRITO}VOCÊ PERDEU!{LIMPAR_COR_DA_FONTE}')
+        elif mao_do_computador == 'TESOURA' and mao_do_jogador == 'PAPEL':
+            print(
+                f'{emojis_das_maos[2]} x {emojis_das_maos[1]}. {TEXTO_VERMELHO_EM_NEGRITO}VOCÊ PERDEU!{LIMPAR_COR_DA_FONTE}')
+        elif mao_do_computador == 'PEDRA' and mao_do_jogador == 'PEDRA' or mao_do_jogador == 'PEDRA' and mao_do_computador == 'PEDRA':
+            print(f'{emojis_das_maos[0]} x {emojis_das_maos[0]}. EMPATE!')
+        elif mao_do_computador == 'PAPEL' and mao_do_jogador == 'PAPEL' or mao_do_jogador == 'PAPEL' and mao_do_computador == 'PAPEL':
+            print(f'{emojis_das_maos[1]} x {emojis_das_maos[1]}. EMPATE!')
+        else:
+            print(f'{emojis_das_maos[2]} x {emojis_das_maos[2]}. EMPATE!')
+    else:
+        print(f'{TEXTO_VERMELHO_EM_NEGRITO}ERRO: O NÚMERO {opcao_escolhida_pelo_usuario} É UMA OPÇÃO INVÁLIDA!{LIMPAR_COR_DA_FONTE}')
