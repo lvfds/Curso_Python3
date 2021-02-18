@@ -2,8 +2,8 @@
 
 soma_dos_numeros_impares_multiplos_de_tres = 0
 
-for contador in range(1,500):
-    if contador % 2 == 1 and contador % 3 == 0:
+for contador in range(1,501,2):
+    if contador % 3 == 0:
         soma_dos_numeros_impares_multiplos_de_tres+=contador
 
 print(f'A soma de todos os números ímpares múltiplos de 3 deu: {soma_dos_numeros_impares_multiplos_de_tres}')
